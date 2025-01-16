@@ -1,4 +1,5 @@
-'use service';
+
+
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
 if(!apiKey) {
@@ -10,10 +11,13 @@ const params = new URLSearchParams({
 })
 
 const api = async (url: string) => {
-    fetch(`${url}?${params}`)
-    .then(response => response.json())
-    .then(data => console.log(data))
+   const response = await fetch(`${url}?${params}`)
+   if(!response.ok){
+        throw new Error('falha ao pegar os dados');
+   }
+   return response
 } 
+
 
 export default api;
 
