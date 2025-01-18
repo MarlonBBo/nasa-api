@@ -11,9 +11,11 @@ export default async function Home() {
   
 
   return (
-    <div className="">
-      <div>
-        <Image src={data.url} alt="img nasa" width={800} height={800}/>
+    <div className="flex flex-col items-end">
+      <div className="flex flex-col bg-slate-400 w-1/2 items-end pt-20 p-10">
+        <Image src={data.url} alt="img nasa" width={800} height={800}
+          className="rounded-2xl"
+        />
         <h1>{data.title}</h1>
         <h3>{data.date}</h3>
       </div>
